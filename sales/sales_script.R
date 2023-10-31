@@ -19,6 +19,9 @@ for (salesdata in all_sales){
 # Use a tidyverse join to join all the data together into one file
 # called sales_data, then run the rest of the code
 
+sales_data <- bind_rows(dataset_1,dataset_2,dataset_3,dataset_4,dataset_5,dataset_6,
+                        dataset_7,dataset_8,dataset_9,dataset_10,dataset_11,dataset_12,
+                        dataset_13,dataset_14,dataset_15,dataset_16)
 
 
 ########################################
@@ -54,3 +57,15 @@ sales_ave_daily <- sales_data %>%
 
 ggplot(data = sales_ave_daily, aes(x = date, y = ave_sales, fill = pizza))+
   geom_bar(stat = "identity", position = "dodge")
+
+#a. Why does the final dataset have 6 columns, while most files have 5 columns?
+
+# a new column was added to combine the date so that sales could be easily
+# summarized by date
+
+# b. Why do the figures look “questionable”? Hint: this should be data for a
+#small pizzeria that does not sell more than 30 pizzas a day… We will work
+#on this code in class next week to fix this and improve the figures.
+
+# most of the sales look normal, except one day they sold 200 meatlovers pizzas
+# maybe this is a typo
